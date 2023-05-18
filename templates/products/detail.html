@@ -1,0 +1,40 @@
+{% extends 'layouts/index.html' %}
+
+{% block content %}
+
+    <style type="text/css">
+    .post_block {
+        width: 80%;
+        margin-left: 10%;
+    }
+    .post_block > img {
+        width: 100%;
+    }
+    .dates {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+    <div class="post_block">
+        <img src="/media/{{ post.image }}/"alt="">
+        <h1>{{ post.title }}</h1>
+        <h4> Rate{{ post.rate }}</h4>
+        <h5>{{ post.description }}</h5>
+
+
+        <div> class= "dates">
+        <h5>{{products.created_date  }}</h5>
+        <h5>{{ products.modified_date }}</h5>
+
+        </div>
+        <div> class="comments">
+            {% for comment in comments %}
+                <div>class="comment_block"
+                    <h5>{{ comment.text }}</h5>
+                    <p>{{ comment.created_data }}</p>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+{% endblock %}
